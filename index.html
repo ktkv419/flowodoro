@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flowodoro</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header--back">
+        <h1 class="header--logo">Flowodoro</h1>
+      </div>
+      <div class="interface">
+        <div class="layout layout__starter">
+          <div class="timer--shell">
+            <input
+              type="number"
+              name="min"
+              id="timemin"
+              class="time"
+              placeholder="20"
+            />
+            :
+            <input
+              type="number"
+              name="sec"
+              id="timesec"
+              class="time"
+              placeholder="00"
+            />
+          </div>
+          <label for="time">Minimum work session</label>
+          <button class="btn btn--start">Start</button>
+          <div class="controls">
+            <div class="controls--btns controls--positive">
+              <button class="btn btn--change-time" data-value="5">
+                +5 min
+              </button>
+              <button class="btn btn--change-time" data-value="10">
+                +10 min
+              </button>
+              <button class="btn btn--change-time" data-value="30">
+                +30 min
+              </button>
+            </div>
+            <div class="controls--btns controls--negative">
+              <button class="btn btn--change-time" data-value="-5">
+                -5 min
+              </button>
+              <button class="btn btn--change-time" data-value="-10">
+                -10 min
+              </button>
+              <button class="btn btn--change-time" data-value="-30">
+                -30 min
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="layout layout__timer hidden">
+          <div class="timer--shell">
+            <input
+              type="number"
+              name="min"
+              id="timemin"
+              class="time"
+              value="00"
+            />
+            :
+            <input
+              type="number"
+              name="sec"
+              id="timesec"
+              class="time"
+              value="00"
+            />
+          </div>
+          <label for="time">Work now</label>
+          <button class="btn btn--stop">Stop</button>
+        </div>
+        <div class="layout layout__options hidden">
+          <h3>Sup</h3>
+          <button class="btn btn--back">Back</button>
+        </div>
+        <button class="btn btn--options" data-value="30">Options</button>
+      </div>
+    </div>
+  </body>
+</html>
