@@ -108,12 +108,15 @@ input:focus {
   color: var(--background);
   border: solid 2px var(--text);
   border-radius: 20px;
-  padding: 1rem 5rem;
+  cursor: pointer;
 }
 
 .btn--start,
 .btn--stop {
   margin-top: 4rem;
+  width: 12rem;
+  height: 4rem;
+  /* width: 10rem; */
   /* align-self: flex-end; */
 }
 
@@ -139,8 +142,24 @@ input:focus {
 }
 
 .btn--options {
+  transition: 0.15s;
   background-color: var(--background);
   color: var(--text);
   padding: 0 1rem;
   margin-top: auto;
+}
+
+.btn--options:hover {
+  transform: translateY(-10%);
+}
+
+.btn--options:active {
+  background-color: var(--text);
+  color: var(--background);
+  transform: translateY(0);
+}
+
+.btn--inactive {
+  opacity: 50%;
+  cursor: unset;
 }
