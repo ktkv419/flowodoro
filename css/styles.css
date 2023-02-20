@@ -13,9 +13,15 @@ html {
 }
 
 body {
+  transition: 0.15s;
   margin: 0;
   background-color: var(--background);
   color: var(--text);
+}
+
+.light-mode {
+  --background: #eae2b7;
+  --text: #003049;
 }
 
 .container {
@@ -78,7 +84,8 @@ input:focus {
 }
 
 .layout__timer,
-.layout__starter {
+.layout__starter,
+.layout__options {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -142,7 +149,6 @@ input:focus {
 }
 
 .btn--options {
-  transition: 0.15s;
   background-color: var(--background);
   color: var(--text);
   padding: 0 1rem;
@@ -162,4 +168,31 @@ input:focus {
 .btn--inactive {
   opacity: 50%;
   cursor: unset;
+}
+
+.option--block {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.option--block:not(:last-child) {
+  margin-bottom: 4rem;
+}
+
+.option__TGBot {
+  display: flex;
+  flex-direction: row;
+}
+
+#tgBotAPI {
+  opacity: 0;
+}
+
+.input--options {
+  background-color: var(--text);
+  color: var(--background);
+  border-radius: 2rem;
+  width: 100%;
+  font-size: 2rem;
 }

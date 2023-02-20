@@ -1,0 +1,14 @@
+{
+  "name": "flowodoro",
+  "version": "1.0.0",
+  "description": "<h1>Flowodoro</h1> <p>Spin to the pomodoro technique with taking into account flow state</p>",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kutikov P.",
+  "license": "ISC",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.61.0"
+  }
+}

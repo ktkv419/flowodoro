@@ -83,11 +83,46 @@
               value="00"
             />
           </div>
-          <label for="time">Work now</label>
+          <label for="time" class="work-type-label">Work time!</label>
           <button class="btn btn--stop">Stop</button>
         </div>
         <div class="layout layout__options hidden">
-          <h3>Sup</h3>
+          <div class="option--block">
+            <label for="breakCoef">Brake coefficient</label>
+            <input
+              type="number"
+              class="input--options"
+              name="breakCoef"
+              id="breakCoef"
+            />
+            <p class="break-coef-example">x = y</p>
+          </div>
+          <div class="option--block">
+            <label for="beforeBigBreak">Before big break</label>
+            <input
+              type="number"
+              class="input--options"
+              name="beforeBigBreak"
+              id="beforeBigBreak"
+            />
+          </div>
+          <div class="option--block">
+            <label for="telegramBot"
+              >Use Telegram bot for notifications during session</label
+            >
+            <div class="option__TGBot">
+              <input type="checkbox" name="telegramBot" id="enableTGBot" />
+              <input
+                type="text"
+                name="telegramBotAPI"
+                id="tgBotAPI"
+                class="input--options"
+                placeholder="Telegram Bot API"
+              />
+            </div>
+          </div>
+
+          <button class="btn btn--light-dark-mode">Light mode</button>
         </div>
         <button class="btn btn--options" data-value="30">Options</button>
       </div>
