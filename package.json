@@ -4,11 +4,17 @@
   "description": "<h1>Flowodoro</h1> <p>Spin to the pomodoro technique with taking into account flow state</p>",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "author": "Kutikov P.",
   "license": "ISC",
   "dependencies": {
     "node-telegram-bot-api": "^0.61.0"
+  },
+  "devDependencies": {
+    "core-js": "^3.28.0",
+    "parcel": "^2.8.3",
+    "regenerator-runtime": "^0.13.11"
   }
 }

@@ -19,112 +19,58 @@
       <div class="header--back">
         <h1 class="header--logo">Flowodoro</h1>
       </div>
-      <div class="interface">
-        <div class="layout layout__starter">
-          <div class="timer--shell">
+      <div class="layout">
+        <div class="layout__start">
+          <h3 class="title-type">Welcome</h3>
+          <div class="timer-shell">
             <input
               type="number"
-              name="min"
+              name="minutes"
               id="min-work-time"
-              class="time"
               placeholder="20"
+              value="20"
+              min="0"
+              maxlength="2"
             />
             :
             <input
               type="number"
-              name="sec"
+              name="seconds"
               id="sec-work-time"
-              class="time"
               placeholder="00"
+              value="00"
+              min="0"
+              max="60"
+              maxlength="2"
             />
           </div>
-          <label for="time">Minimum work session</label>
-          <button class="btn btn--start">Start</button>
           <div class="controls">
-            <div class="controls--btns controls--positive">
-              <button class="btn btn--change-time" data-value="5">
+            <div class="controls--btns">
+              <button class="btn btn__change-time" data-value="5">
                 +5 min
               </button>
-              <button class="btn btn--change-time" data-value="10">
+              <button class="btn btn__change-time" data-value="10">
                 +10 min
               </button>
-              <button class="btn btn--change-time" data-value="30">
+              <button class="btn btn__change-time" data-value="30">
                 +30 min
               </button>
             </div>
-            <div class="controls--btns controls--negative">
-              <button class="btn btn--change-time" data-value="-5">
+            <div class="controls--btns">
+              <button class="btn btn__change-time" data-value="-5">
                 -5 min
               </button>
-              <button class="btn btn--change-time" data-value="-10">
+              <button class="btn btn__change-time" data-value="-10">
                 -10 min
               </button>
-              <button class="btn btn--change-time" data-value="-30">
+              <button class="btn btn__change-time" data-value="-30">
                 -30 min
               </button>
             </div>
           </div>
+          <button class="btn btn__options">Options</button>
+          <button class="btn btn__start">Start</button>
         </div>
-        <div class="layout layout__timer hidden">
-          <div class="timer--shell">
-            <input
-              type="number"
-              name="min"
-              id="time-min"
-              class="time"
-              value="20"
-            />
-            :
-            <input
-              type="number"
-              name="sec"
-              id="time-sec"
-              class="time"
-              value="00"
-            />
-          </div>
-          <label for="time" class="work-type-label">Work time!</label>
-          <button class="btn btn--stop">Stop</button>
-        </div>
-        <div class="layout layout__options hidden">
-          <div class="option--block">
-            <label for="breakCoef">Brake coefficient</label>
-            <input
-              type="number"
-              class="input--options"
-              name="breakCoef"
-              id="breakCoef"
-            />
-            <p class="break-coef-example">x = y</p>
-          </div>
-          <div class="option--block">
-            <label for="beforeBigBreak">Before big break</label>
-            <input
-              type="number"
-              class="input--options"
-              name="beforeBigBreak"
-              id="beforeBigBreak"
-            />
-          </div>
-          <div class="option--block">
-            <label for="telegramBot"
-              >Use Telegram bot for notifications during session</label
-            >
-            <div class="option__TGBot">
-              <input type="checkbox" name="telegramBot" id="enableTGBot" />
-              <input
-                type="text"
-                name="telegramBotAPI"
-                id="tgBotAPI"
-                class="input--options"
-                placeholder="Telegram Bot API"
-              />
-            </div>
-          </div>
-
-          <button class="btn btn--light-dark-mode">Light mode</button>
-        </div>
-        <button class="btn btn--options" data-value="30">Options</button>
       </div>
     </div>
   </body>

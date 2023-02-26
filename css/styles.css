@@ -8,7 +8,6 @@
 }
 
 html {
-  margin: 0;
   font-size: 62.5%;
 }
 
@@ -26,20 +25,14 @@ body {
 
 .container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   width: 100vw;
   height: 100vh;
-  flex-direction: column;
-  position: relative;
 }
 
-.interface {
-  /* flex-grow: 1; */
-  display: flex;
-  height: 60vh;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.layout {
+  height: 50vh;
 }
 
 .header--logo {
@@ -47,25 +40,10 @@ body {
   font-family: 'Dancing Script';
   font-size: 10rem;
   color: var(--background);
-}
-
-.header--logo {
   display: flex;
   justify-content: center;
   background-color: var(--text);
   width: 100vw;
-}
-
-.layout {
-  display: block;
-}
-
-input {
-  background-color: rgba(0, 0, 0, 0);
-  color: var(--text);
-  border: none;
-  text-align: center;
-  /* font-size: 3rem; */
 }
 
 input::-webkit-outer-spin-button,
@@ -76,38 +54,35 @@ input::-webkit-inner-spin-button {
 
 input[type='number'] {
   -moz-appearance: textfield;
-}
-
-input:active,
-input:focus {
+  background-color: rgba(0, 0, 0, 0);
+  color: var(--text);
+  width: 10rem;
+  border: none;
+  text-align: center;
   outline: none;
+  font-size: inherit;
 }
 
-.layout__timer,
-.layout__starter,
-.layout__options {
-  height: 100%;
+.timer-shell {
+  font-size: 8rem;
+}
+
+.layout__start {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }
 
-.hidden {
-  display: none;
+.title-type {
+  font-size: 3rem;
+  margin: 15px 15px;
+  margin-bottom: auto;
 }
 
-.invisible {
-  opacity: 0;
-}
-
-.timer--shell {
-  font-size: 10rem;
-}
-
-.time {
-  font-size: inherit;
-  width: 13rem;
+.controls--btns:not(:last-child) {
+  margin-bottom: 1rem;
 }
 
 .btn {
@@ -116,83 +91,33 @@ input:focus {
   border: solid 2px var(--text);
   border-radius: 20px;
   cursor: pointer;
+  width: 7rem;
 }
 
-.btn--start,
-.btn--stop {
-  margin-top: 4rem;
-  width: 12rem;
-  height: 4rem;
-  /* width: 10rem; */
-  /* align-self: flex-end; */
+.btn__change-time {
+  width: 6.5rem;
+  color: var(--text);
+  background-color: var(--background);
 }
 
 .controls {
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
   width: 100%;
-  /* justify-content: flex-end; */
 }
 
 .controls--btns {
   display: flex;
-  justify-content: space-around;
+  width: 100%;
+  justify-content: space-between;
 }
 
-.controls--btns:last-child {
-  margin-top: 2rem;
-}
-
-.btn--change-time {
-  padding: 0.5rem 0.5rem;
-}
-
-.btn--options {
-  background-color: var(--background);
+.btn__options {
   color: var(--text);
-  padding: 0 1rem;
+  background-color: var(--background);
   margin-top: auto;
 }
 
-.btn--options:hover {
-  transform: translateY(-10%);
-}
-
-.btn--options:active {
-  background-color: var(--text);
-  color: var(--background);
-  transform: translateY(0);
-}
-
-.btn--inactive {
-  opacity: 50%;
-  cursor: unset;
-}
-
-.option--block {
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-}
-
-.option--block:not(:last-child) {
-  margin-bottom: 4rem;
-}
-
-.option__TGBot {
-  display: flex;
-  flex-direction: row;
-}
-
-#tgBotAPI {
-  opacity: 0;
-}
-
-.input--options {
-  background-color: var(--text);
-  color: var(--background);
-  border-radius: 2rem;
-  width: 100%;
-  font-size: 2rem;
+.btn__start {
+  margin-top: auto;
+  width: 10rem;
+  height: 4rem;
 }
