@@ -4,9 +4,46 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Open+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/style.css" />
     <script src="script.js" defer></script>
     <title>Flowodoro</title>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <header class="header">
+        <span class="header__logo">Flowodoro</span>
+        <nav class="user-nav">
+          <div class="user-nav__icon-box" id="timer">
+            <svg class="user-nav__icon">
+              <use xlink:href="img/icons.svg#icon-stopwatch" />
+            </svg>
+            <span class="user-nav__timer">Timer</span>
+          </div>
+          <div class="user-nav__icon-box" id="settings">
+            <svg class="user-nav__icon">
+              <use xlink:href="img/icons.svg#icon-cog" />
+            </svg>
+            <span class="user-nav__settings">Settings</span>
+          </div>
+          <div class="user-nav__icon-box" id="history">
+            <svg class="user-nav__icon">
+              <use xlink:href="img/icons.svg#icon-trophy" />
+            </svg>
+            <span class="user-nav__history">History</span>
+          </div>
+        </nav>
+      </header>
+      <main class="content">
+        <div id="timer-screen" class="mode">Timer</div>
+        <div id="settings-screen" class="hidden mode">Settings</div>
+        <div id="history-screen" class="hidden mode">History</div>
+      </main>
+    </div>
+  </body>
 </html>

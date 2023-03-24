@@ -1,3 +1,21 @@
+:root {
+  --color-primary-1: #9da9a0;
+  --color-primary-1: #9da9a0;
+  --color-primary-2: #654c4f;
+  --color-primary-3: #b26e63;
+  --color-primary-4: #cec075;
+  --color-white: #c0caad;
+  --color-black: #111;
+
+  --color-grey-light-1: #faf9f9;
+  --color-grey-light-2: #f4f2f2;
+  --color-grey-light-3: #f0eeee;
+  --color-grey-light-4: #ccc;
+  --color-grey-dark-1: #333;
+  --color-grey-dark-2: #777;
+  --color-grey-dark-3: #999;
+}
+
 *,
 *::after,
 *::before {
@@ -12,4 +30,15 @@ html {
 
 body {
   box-sizing: border-box;
+  background-color: var(--color-black);
+  color: var(--color-black);
+}
+
+.container {
+  max-width: 90rem;
+  height: 90vh;
+  margin: 2rem auto;
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
 }
