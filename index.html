@@ -40,9 +40,44 @@
         </nav>
       </header>
       <main class="content">
-        <div id="timer-screen" class="mode">Timer</div>
-        <div id="settings-screen" class="hidden mode">Settings</div>
-        <div id="history-screen" class="hidden mode">History</div>
+        <div id="timer-screen" class="timer-screen mode active">
+          <div class="timer-screen__clock">
+            <input
+              type="number"
+              name="hours"
+              class="timer-screen__clock--minutes"
+              placeholder="20"
+              value="00"
+              min="0"
+              maxlength="2"
+            />
+            :
+            <input
+              type="number"
+              name="hours"
+              class="timer-screen__clock--seconds"
+              placeholder="20"
+              value="00"
+              min="0"
+              maxlength="2"
+            />
+          </div>
+          <div class="timer-screen__buttons">
+            <div class="timer-screen__buttons--pos">
+              <button class="btn btn--timer" data-value="5">+5</button>
+              <button class="btn btn--timer" data-value="10">+10</button>
+              <button class="btn btn--timer" data-value="30">+30</button>
+            </div>
+            <div class="timer-screen__buttons--neg">
+              <button class="btn btn--timer" data-value="-5">-5</button>
+              <button class="btn btn--timer" data-value="-10">-10</button>
+              <button class="btn btn--timer" data-value="-30">-30</button>
+            </div>
+          </div>
+          <button class="btn btn--start">Start</button>
+        </div>
+        <div id="settings-screen" class="settings-screen mode">Settings</div>
+        <div id="history-screen" class="history-screen mode">History</div>
       </main>
     </div>
   </body>

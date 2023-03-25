@@ -52,13 +52,48 @@
   &__icon {
     height: 3rem;
     width: 3rem;
-    transition: all 0.1s 0.1s;
+    transition: all 0.1s;
     fill: currentColor;
   }
 
   &__icon-box:hover &__icon {
     height: 5rem;
     width: 5rem;
+  }
+
+  @keyframes slide-down {
+    // 0% {
+    //   transform: translateY(0%);
+    //   opacity: 100%;
+    // }
+    // 50% {
+    //   transform: translateY(100%);
+    //   opacity: 0;
+    // }
+    // 51% {
+    //   transform: translateY(-100%);
+    //   opacity: 100%;
+    // }
+    // 100% {
+    //   transform: translateY(0%);
+    //   opacity: 100%;
+    // }
+    0% {
+      transform: translateY(0%) scale(1);
+    }
+    50% {
+      transform: translateY(100%) scale(0);
+    }
+    51% {
+      transform: translateY(-100%) scale(1);
+    }
+    100% {
+      transform: translateY(0%) scale(1);
+    }
+  }
+
+  .change {
+    animation: slide-down 0.4s;
   }
 
   // &__icon-box:active &__icon {
@@ -74,27 +109,73 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+  overflow: hidden;
+  position: relative;
 
   .mode {
-    &:not(.hidden) {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      opacity: 1;
-      position: relative;
-      height: 100%;
-      transition: opacity 0.5s;
-    }
+    transform: translateY(-100%);
+    flex: 1;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
   }
 
-  #timer-screen {
-    background-color: var(--color-primary-1);
+  .active {
+    transform: translateY(0%);
+    transition: all 0.5s 0.1s;
+    z-index: 100;
+    // opacity: 1;
+    // height: 100%;
+    // transition: opacity 1s;
   }
-  #settings-screen {
+
+  .hidden {
+    transition: all 0s 0.6s;
+  }
+
+  .timer-screen {
+    background-color: var(--color-primary-1);
+    display: flex;
+    flex-direction: column;
+    // height: 100%;
+    &__clock {
+      display: flex;
+      align-items: flex-end;
+      font-size: 12rem;
+
+      input {
+        text-align: center;
+        line-height: 0;
+        width: 15rem;
+        padding: 0;
+      }
+    }
+
+    &__buttons {
+      width: 20rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      &--pos {
+        margin-bottom: 0.5rem;
+      }
+      &--pos,
+      &--neg {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+  .settings-screen {
     background-color: var(--color-primary-2);
   }
-  #history-screen {
+  .history-screen {
     background-color: var(--color-primary-3);
   }
 }
@@ -104,7 +185,26 @@
   cursor: default;
 }
 
-.hidden {
-  height: 0 !important;
-  opacity: 0 !important;
+// .hidden {
+//   // height: 0 !important;
+//   // opacity: 0 !important;
+//   display: none !important;
+// }
+
+input {
+  font-size: inherit;
+  // background-color: orangered;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type='number'] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
 }

@@ -1,8 +1,7 @@
 :root {
-  --color-primary-1: #9da9a0;
-  --color-primary-1: #9da9a0;
+  --color-primary-3: #9da9a0;
   --color-primary-2: #654c4f;
-  --color-primary-3: #b26e63;
+  --color-primary-1: #b26e63;
   --color-primary-4: #cec075;
   --color-white: #c0caad;
   --color-black: #111;
@@ -38,7 +37,7 @@ body {
   max-width: 90rem;
   height: 90vh;
   margin: 2rem auto;
-  background-color: var(--color-white);
+  background-color: var(--color-black);
   display: flex;
   flex-direction: column;
 }
