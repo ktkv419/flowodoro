@@ -6,8 +6,10 @@ import { Split } from "../split/split.model"
 
 interface IUserStore {
     // User
-    isLoggedIn: boolean
-    setIsLoggedIn: (isLoggedIn: boolean) => void
+    logged: boolean
+    setLogged: (logged: boolean) => void
+    onboarded: boolean
+    setOnboarded: (onboarded: boolean) => void
 
     // Session
     setSession: (sessionHistory: ISessionClass[]) => void
@@ -24,10 +26,10 @@ interface IUserStore {
 const useUserStore = create<IUserStore>()(
     persist(
         (set) => ({
-            isLoggedIn: false,
-            setIsLoggedIn: (isLoggedIn) => set(() => ({ isLoggedIn })),
-            userId: undefined,
-            // setUserId: (id) => set({ userId: id }),
+            logged: false,
+            setLogged: (logged) => set(() => ({ logged })),
+            onboarded: false,
+            setOnboarded: (onboarded) => set(() => ({ onboarded })),
             sessionHistory: [],
             setSession: (sessionHistory) => set({ sessionHistory }),
             sessionSplit: () => {

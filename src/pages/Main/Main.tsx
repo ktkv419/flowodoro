@@ -5,18 +5,18 @@ import { useEffect } from "react"
 import { URLs } from "../../shared/router/router.config"
 
 const Main = () => {
-    const { isLoggedIn } = useUserStore()
+    const { logged } = useUserStore()
 
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (isLoggedIn === undefined) {
+        if (logged === false) {
             navigate(URLs.login)
         }
-    }, [isLoggedIn])
+    }, [logged])
 
     return (
-        <div className="main">
+        <div className="main h-full relative p-4">
             <Outlet />
             <TabBar />
         </div>

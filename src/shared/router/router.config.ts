@@ -1,8 +1,10 @@
-export const URLs = {
-    login: "/login",
+export type TRoutes = "settings" | "timer" | "history" | "login" | "onboarding" | "main"
 
+export const URLs: Record<TRoutes, string> = {
+    login: "/login",
     main: "/",
-    stopwatch: "",
+    timer: "",
     settings: "settings",
-    onboarding: "onboarding",
+    onboarding: "/onboarding",
+    history: "history"
 }
