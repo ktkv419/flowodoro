@@ -3,18 +3,19 @@ import Stopwatch from "../../pages/Stopwatch/Stopwatch"
 import Login from "../../pages/Login/Login"
 import Main from "../../pages/Main/Main"
 import Settings from "../../pages/Settings/Settings"
+import { URLs } from "../../shared/router/router.config"
 
 const router = createBrowserRouter([
     {
-        path: "/",
+        path: URLs.main,
         element: <Main />,
         children: [
-            { path: "", element: <Stopwatch /> },
-            { path: "settings", element: <Settings /> },
+            { path: URLs.stopwatch, element: <Stopwatch /> },
+            { path: URLs.settings, element: <Settings /> },
         ],
     },
     {
-        path: "/login",
+        path: URLs.login,
         element: <Login />,
     },
 ])

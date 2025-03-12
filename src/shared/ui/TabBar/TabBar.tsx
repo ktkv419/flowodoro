@@ -1,13 +1,14 @@
 import { useNavigate } from "react-router"
-import useClockStore from "../../entities/clock/clock.modal"
+import useClockStore from "../../../entities/clock/clock.model"
+import { URLs } from "../../router/router.config"
 
 const TabBar = () => {
     const navigate = useNavigate()
     const { currentTime } = useClockStore()
     return (
         <div className="tab-bar">
-            <button onClick={() => navigate("/")}>Main</button>
-            <button onClick={() => navigate("/settings")}>Settings</button>
+            <button onClick={() => navigate(URLs.main)}>Main</button>
+            <button onClick={() => navigate(URLs.settings)}>Settings</button>
             {currentTime}
         </div>
     )

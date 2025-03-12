@@ -1,18 +1,17 @@
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
 import { ISessionClass } from "../session/session.types"
-import { Session } from "../session/session.modal"
-import { Split } from "../split/split.modal"
+import { Session } from "../session/session.model"
+import { Split } from "../split/split.model"
 
 interface IUserStore {
     // User
-    isOffline: boolean | undefined
-    userId: string | undefined
-    setUserId: (id: string) => void
+    isLoggedIn: boolean
+    setIsLoggedIn: (isLoggedIn: boolean) => void
 
     // Session
+    setSession: (sessionHistory: ISessionClass[]) => void
     sessionHistory: ISessionClass[]
-    createSession: (session: ISessionClass) => void
     sessionSplit: () => void
 
     // Settings
@@ -25,14 +24,12 @@ interface IUserStore {
 const useUserStore = create<IUserStore>()(
     persist(
         (set) => ({
-            isOffline: undefined,
+            isLoggedIn: false,
+            setIsLoggedIn: (isLoggedIn) => set(() => ({ isLoggedIn })),
             userId: undefined,
-            setUserId: (id) => set({ userId: id }),
+            // setUserId: (id) => set({ userId: id }),
             sessionHistory: [],
-            createSession: (session) =>
-                set((state) => ({
-                    sessionHistory: [...state.sessionHistory, session],
-                })),
+            setSession: (sessionHistory) => set({ sessionHistory }),
             sessionSplit: () => {
                 set((state) => {
                     const sessions = state.sessionHistory

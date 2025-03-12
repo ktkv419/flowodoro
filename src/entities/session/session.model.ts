@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid"
 import { ISessionClass } from "./session.types"
-import { Split } from "../split/split.modal"
+import { Split } from "../split/split.model"
 import { ISplitClass } from "../split/split.types"
 
 export class Session implements ISessionClass {

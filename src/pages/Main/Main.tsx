@@ -1,18 +1,19 @@
 import { Outlet, useNavigate } from "react-router"
-import TabBar from "../../shared/ui/TabBar"
-import useUserStore from "../../entities/user/user.modal"
+import TabBar from "../../shared/ui/TabBar/TabBar"
+import useUserStore from "../../entities/user/user.model"
 import { useEffect } from "react"
+import { URLs } from "../../shared/router/router.config"
 
 const Main = () => {
-    // const { userId, isOffline } = useUserStore()
+    const { isLoggedIn } = useUserStore()
 
     const navigate = useNavigate()
 
     useEffect(() => {
-        // if (!userId || isOffline) {
-        //     navigate("/login")
-        // }
-    }, [])
+        if (isLoggedIn === undefined) {
+            navigate(URLs.login)
+        }
+    }, [isLoggedIn])
 
     return (
         <div className="main">
