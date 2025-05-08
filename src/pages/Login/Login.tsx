@@ -31,23 +31,23 @@ const Login = () => {
     }, [])
 
     return (
-        <div className="login grid h-full grid-rows-[1fr_auto_1fr] p-8">
-            <div className="login__container row-end-3">
-                <h1 className="login__title mb-4 text-center text-5xl font-bold">Flowodoro</h1>
+        <div className="login flex h-full justify-center items-center p-8">
+            <div className="login__container row-end-3 w-full md:max-w-md">
+                <h1 className="font-[Great_Vibes] login__title mb-4 text-center text-4xl sm:text-6xl md:text-8xl font-bold">Flowodoro</h1>
                 <form className="flex w-full flex-col gap-2">
                     <Input placeholder="Email" type="email" />
                     <Input placeholder="Password" type="password" />
-                    <Button className="mt-4" type="submit">
+                    <Button className="mt-4" variant={"wave"} type="submit">
                         Log in
                     </Button>
                     <Button type="submit" variant={"outline"}>
                         Sign up
                     </Button>
-                    <Button type="button" variant={"ghost"} onClick={onOfflineLogin}>
+                    <Button type="button" variant={"ghostWave"} onClick={onOfflineLogin}>
                         Stay offline
                     </Button>
                 </form>
-                <Wave className="absolute bottom-0 left-0 w-screen bg-transparent" amount={3} />
+                <Wave className="max-h-[30dvh] opacity-50 absolute bottom-0 left-0 w-screen bg-transparent" amount={3} />
             </div>
         </div>
     )

@@ -12,14 +12,14 @@ const Wave = ({ className = "", amount = 1 }: IWave) => {
                 width="100%"
                 height="100%"
                 id="svg"
-                viewBox="0 0 1440 690"
+                viewBox="0 0 1400 690"
                 xmlns="http://www.w3.org/2000/svg"
                 className="transition delay-150 duration-300 ease-in-out"
             >
                 <defs>
                     <linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%">
-                        <stop offset="5%" stop-color="#a8dadc"></stop>
-                        <stop offset="95%" stop-color="#457b9d"></stop>
+                        <stop offset="5%" stop-color="oklch(0.828 0.111 230.318)"></stop>
+                        <stop offset="95%" stop-color="oklch(0.443 0.11 240.79)"></stop>
                     </linearGradient>
                 </defs>
                 {amount >= 3 && (
