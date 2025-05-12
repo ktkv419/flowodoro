@@ -1,4 +1,4 @@
-import { ISplitClass } from "../split/split.types"
+import { ISplit } from "../split/split.types"
 
 export interface ISessionSettings {
     amountOfBreaks: number
@@ -6,7 +6,7 @@ export interface ISessionSettings {
 }
 
 export interface ISession extends ISessionSettings {
-    splits: ISplitClass[]
+    splits: ISplit[]
     isDone: boolean
 }
 

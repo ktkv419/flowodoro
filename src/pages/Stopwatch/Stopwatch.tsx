@@ -1,38 +1,58 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import useClockStore from "../../entities/clock/clock.model"
 import useUserStore from "../../entities/user/user.model"
 import Feed from "../../shared/ui/Feed/Feed"
 
 const Stopwatch = () => {
-    const { currentTime, setCurrentTime, setIsRunning, intervalId, setIntervalId } = useClockStore()
+    const [currentTime, setCurrentTime] = useState(0)
+    const { setIsRunning, isRunning, intervalId, setIntervalId } = useClockStore()
 
     const { sessionHistory, setSession, sessionSplit } = useUserStore()
     const lastSession = sessionHistory[sessionHistory.length - 1]
+
+    useEffect(() => {
+        const lastSplit = lastSession.splits[lastSession.splits.length - 1]
+        console.log(lastSession)
+
+        if (isRunning) {
+            if (lastSplit.type === "work") {
+                setCurrentTime(Math.round((Date.now() - lastSplit.startTime) / 1000))
+            } else {
+                setCurrentTime(Math.round((lastSplit.endTime! - Date.now()) / 1000))
+            }
+        }
+    }, [])
 
     useEffect(() => {
         if (lastSession) {
             const lastSplit = lastSession.splits[lastSession.splits.length - 1]
             setIsRunning(true)
             if (lastSplit.type === "work") {
-                setCurrentTime(0)
                 setIntervalId(
                     setInterval(() => {
-                        setCurrentTime((val) => val + 1)
+                        setCurrentTime(Math.round((Date.now() - lastSplit.startTime) / 1000))
                     }, 1000),
                 )
             } else {
-                setCurrentTime(Math.floor(lastSplit.endTime! / 1000))
                 setIntervalId(
                     setInterval(() => {
-                        setCurrentTime((val) => val - 1)
+                        setCurrentTime(() => {
+                            const time = Math.round((lastSplit.endTime! - Date.now()) / 1000)
+                            if (time <= 1) {
+                                setIntervalId(undefined)
+                                return 0
+                            }
+                            return time
+                        })
                     }, 1000),
                 )
             }
         }
 
         return () => {
-            clearInterval(intervalId)
-            setIntervalId(undefined)
+            if (intervalId) {
+                setIntervalId(undefined)
+            }
         }
     }, [sessionHistory])
 
@@ -50,7 +70,7 @@ const Stopwatch = () => {
         setIsRunning(false)
         setCurrentTime(0)
         setSession([])
-        clearInterval(intervalId)
+        setIntervalId(undefined)
     }
 
     return (

@@ -1,27 +1,25 @@
 import { create } from "zustand"
+import { devtools } from "zustand/middleware"
 
 interface IClockStore {
-    currentTime: number
-    setCurrentTime: (value: number | ((prev: number) => number)) => void
     isRunning: boolean
-    setIsRunning: (isRunning: boolean) => void
-    intervalId: NodeJS.Timeout | undefined
-    setIntervalId: (intervalId: NodeJS.Timeout | undefined) => void
+    intervalId?: NodeJS.Timeout
+    setIsRunning: (value: boolean) => void
+    setIntervalId: (id?: NodeJS.Timeout) => void
 }
 
-const useClockStore = create<IClockStore>()((set) => ({
-    currentTime: 0,
-    setCurrentTime: (currentTime) =>
-        set((state) => ({
-            currentTime:
-                typeof currentTime === "function"
-                    ? currentTime(state.currentTime)
-                    : currentTime,
-        })),
-    isRunning: false,
-    setIsRunning: (isRunning) => set({ isRunning }),
-    intervalId: undefined,
-    setIntervalId: (intervalId) => set({ intervalId }),
-}))
+const useClockStore = create<IClockStore>()(
+    devtools((set) => ({
+        isRunning: false,
+        intervalId: undefined,
+
+        setIsRunning: (value) => set({ isRunning: value }),
+        setIntervalId: (id) =>
+            set((state) => {
+                state.intervalId && clearInterval(state.intervalId)
+                return { intervalId: id }
+            }),
+    })),
+)
 
 export default useClockStore

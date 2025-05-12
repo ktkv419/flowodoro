@@ -1,14 +1,13 @@
 import { nanoid } from "nanoid"
 import { ISessionClass } from "./session.types"
 import { Split } from "../split/split.model"
-import { ISplitClass } from "../split/split.types"
 
 export class Session implements ISessionClass {
-    id: string
-    amountOfBreaks: number
-    ratio: number
-    splits: ISplitClass[]
-    isDone: boolean
+    id
+    amountOfBreaks
+    ratio
+    splits
+    isDone
 
     constructor(amountOfBreaks: number, ratio: number) {
         this.id = nanoid()

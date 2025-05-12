@@ -5,8 +5,5 @@ export interface ISplit {
     startTime: number
     endTime?: number
     type: TSplitType
-}
-
-export interface ISplitClass extends ISplit {
     setEndTime(endTime: number): void
 }

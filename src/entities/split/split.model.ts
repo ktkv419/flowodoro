@@ -1,11 +1,11 @@
 import { nanoid } from "nanoid"
-import { ISplitClass, TSplitType } from "./split.types"
+import { ISplit, TSplitType } from "./split.types"
 
-export class Split implements ISplitClass {
-    id: string
-    startTime: number
-    endTime?: number
-    type: TSplitType
+export class Split implements ISplit {
+    id
+    startTime
+    endTime?
+    type
 
     constructor(startTime: number, type: TSplitType, endTime?: number) {
         this.id = nanoid()
